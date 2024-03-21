@@ -45,9 +45,18 @@ const images = [
     let thumbnailImages = document.querySelector('.col-4');
     // per ogni elemento dell'array immagini popolo il DOM
     images.forEach((imagesDom) => {
-        carouselImages.innerHTML += `<img src="${imagesDom.image}" alt="main-image">`;
+        carouselImages.innerHTML += `
+        <div class="anchor">
+            <img src="${imagesDom.image}" alt="main-image">
+            <div class="description pe-3">
+                <h2>${imagesDom.title}</h2>
+                <p>${imagesDom.text}</p>
+            </div>
+        </div>
+        `;
         thumbnailImages.innerHTML += `
         <div class="ms-h20 thumbnail">
             <img src="${imagesDom.image}" alt="thumbnail-image">
-        </div>`;
+        </div>
+        `;
     });
