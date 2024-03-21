@@ -27,6 +27,7 @@
 }
 .anchor{
     display: none;
+    position: relative;
 }
 .col-4{
     position: relative;
@@ -44,8 +45,14 @@ img{
     height: 100%;
     object-fit: cover;
 }
-.anchor{
-    position: relative;
+.col-8 img{
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+.col-4{
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    overflow: hidden;
 }
 .description{
     position: absolute;
