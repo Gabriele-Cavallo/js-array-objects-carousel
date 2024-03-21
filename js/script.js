@@ -60,3 +60,13 @@ const images = [
         </div>
         `;
     });
+
+// THUMBNAIL SECTION
+
+// Al click dell'utente sulle frecce verso alto o basso, l'immagine attiva diventerà visibile
+    // Creo una classe css active per dare display block all'elemento attivo
+    // Imposto le immagini della col-8 disattivate con un selettore css
+    // Dichiaro l'immagine di partenza di col-8 e col-4
+
+    // Imposto il funzionamento del bottone immagine precedente
+    // Imposto il funzionamento del bottone immagine successiva
