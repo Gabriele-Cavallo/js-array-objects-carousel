@@ -78,8 +78,14 @@ const images = [
         // aggiungo la classe active al primo elemento visibile
         allImageThumbnails[activeItem].classList.add("active");
 
+    previousImage();
+    nextImage ();
+    
 
-    // Imposto il funzionamento del bottone immagine precedente
+  
+
+function previousImage (){
+// Imposto il funzionamento del bottone immagine precedente
         // creo l'elemento del DOM a cui assegnero l'eventListener
         let previousImage = document.querySelector('.previous');
         // associo l'eventListener all'elemento del DOM
@@ -96,8 +102,10 @@ const images = [
             allAnchor[activeItem].classList.add("active");
             allImageThumbnails[activeItem].classList.add("active");
         });
+};
 
-    // Imposto il funzionamento del bottone immagine successiva
+function nextImage (){
+      // Imposto il funzionamento del bottone immagine successiva
         // creo l'elemento del DOM a cui assegnero l'eventListener
         let nextImage = document.querySelector('.next');
         // associo l'eventListener all'elemento del DOM
@@ -114,4 +122,4 @@ const images = [
             allAnchor[activeItem].classList.add("active");
             allImageThumbnails[activeItem].classList.add("active");
         });
-
+}
