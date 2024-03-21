@@ -5,3 +5,27 @@
     box-sizing: border-box;
 }
 /* #endregion RESET */
+
+/* #region GENERAL */
+.container{
+    height: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,  -50%);
+    padding: 0;
+}
+.row, .col-12, .col-8, .col-4{
+    height: 100%;
+}
+.col-12{
+    background-color: pink;
+}
+.col-8{
+    background-color: blue;
+}
+.col-4{
+    background-color: red;
+}
+/* #endregion GENERAL */
+
