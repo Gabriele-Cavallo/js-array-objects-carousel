@@ -91,6 +91,14 @@ img{
 .thumbnail{
     opacity: 0.4;
 }
+.ms-btn{
+    background-color: grey;
+    border: 1px solid black;
+}
+.button{
+    display: flex;
+    justify-content: center;
+}
 /* #endregion MyStyle */
 
 

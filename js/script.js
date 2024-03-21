@@ -84,31 +84,35 @@ const images = [
         let allImageThumbnails = document.querySelectorAll('.thumbnail');
         // aggiungo la classe active al primo elemento visibile
         allImageThumbnails[activeItem].classList.add("active");
-        
-    // setInterval(nextImage3sec, 3000)
+    
+    // const intervalImage = setInterval(nextImage3sec, 3000)
+    const playButton = document.querySelector('.play');
+    const stopButton = document.querySelector('.stop');
+    playButton.addEventListener('click', function(){
+        setInterval(nextImage3sec, 3000);
+    });
+    stopButton.addEventListener('click', function(){
+        stopImage(intervalImage);
+
+    });
     previousImage();
     nextImage();
     activeImage(allAnchor, allImageThumbnails, activeItem);
 
 
 // funzione per attivare l'immagine cliccata
-function activeImage (activeAnchor, activeThumbnails, activeItem){
+function activeImage (anchor, thumbnail, item){
     let selectImage = document.querySelectorAll('.active-image');
-    selectImage.forEach((image) => {
-        image.addEventListener('click', function(){
-            activeAnchor[activeItem].classList.remove("active");
-            activeThumbnails[activeItem].classList.remove("active");
-            // active item selezionato
-            activeAnchor[image].classList.add("active");
-            activeThumbnails[image].classList.add("active");
+    selectImage.forEach((image, index) => {
+        image.addEventListener('click', () =>{
+            anchor[item].classList.remove("active");
+            thumbnail[item].classList.remove("active");
+            anchor[index].classList.add("active");
+            thumbnail[index].classList.add("active");
+            item = index;
         });
     });
 }
-
-    
-    
-
-  
 
 function previousImage (){
 // Imposto il funzionamento del bottone immagine precedente
@@ -161,4 +165,7 @@ function nextImage3sec(){
     }
     allAnchor[activeItem].classList.add("active");
     allImageThumbnails[activeItem].classList.add("active");
+}
+function stopImage (stopAnimation){
+    clearInterval(stopAnimation);
 }
