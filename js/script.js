@@ -81,9 +81,11 @@ const images = [
         let allImageThumbnails = document.querySelectorAll('.thumbnail');
         // aggiungo la classe active al primo elemento visibile
         allImageThumbnails[activeItem].classList.add("active");
-
+        
+    setInterval(nextImage3sec, 3000)
     previousImage();
-    nextImage ();
+    nextImage();
+    
     
 
   
@@ -126,4 +128,17 @@ function nextImage (){
             allAnchor[activeItem].classList.add("active");
             allImageThumbnails[activeItem].classList.add("active");
         });
+}
+function nextImage3sec(){
+    // ogni 3 secondi devo togliere la classe active dagli item selezionati
+    allAnchor[activeItem].classList.remove("active");
+    allImageThumbnails[activeItem].classList.remove("active");
+    // e darla ai successivi
+    if (activeItem < allAnchor.length -1 ){
+        activeItem++;
+    }else {
+        activeItem = 0;
+    }
+    allAnchor[activeItem].classList.add("active");
+    allImageThumbnails[activeItem].classList.add("active");
 }
