@@ -65,7 +65,7 @@ const images = [
             <img src="${imagesDom.image}" alt="thumbnail-image">
         </div>
         `;
-        miniatureImage.innerHTML += `<img class="ms-col-20" src="${imagesDom.image}" alt="miniature-img">`;
+        miniatureImage.innerHTML += `<img class="ms-col-20 active-image" src="${imagesDom.image}" alt="miniature-img">`;
     });
 
 // THUMBNAIL SECTION
@@ -88,8 +88,22 @@ const images = [
     // setInterval(nextImage3sec, 3000)
     previousImage();
     nextImage();
+    activeImage(allAnchor, allImageThumbnails, activeItem);
 
 
+// funzione per attivare l'immagine cliccata
+function activeImage (activeAnchor, activeThumbnails, activeItem){
+    let selectImage = document.querySelectorAll('.active-image');
+    selectImage.forEach((image) => {
+        image.addEventListener('click', function(){
+            activeAnchor[activeItem].classList.remove("active");
+            activeThumbnails[activeItem].classList.remove("active");
+            // active item selezionato
+            activeAnchor[image].classList.add("active");
+            activeThumbnails[image].classList.add("active");
+        });
+    });
+}
 
     
     
