@@ -21,6 +21,8 @@
 .col-12{
 }
 .col-8{
+    border-right: 1px solid black;
+    background-color: red;
 }
 .col-4{
     position: relative;

@@ -38,3 +38,16 @@ const images = [
         text: 'Marvel\'s Avengers is an epic, third-person, action-adventure game that combines an original, cinematic story with single-player and co-operative gameplay.',
     }
 ];
+
+// Popolazione dei container col-8 e col-4 con le immagini dell'array
+    // creo gli elementi del DOM in cui andrò a inserire le immagini del carosello
+    let carouselImages = document.querySelector('.col-8');
+    let thumbnailImages = document.querySelector('.col-4');
+    // per ogni elemento dell'array immagini popolo il DOM
+    images.forEach((imagesDom) => {
+        carouselImages.innerHTML += `<img src="${imagesDom.image}" alt="main-image">`;
+        thumbnailImages.innerHTML += `
+        <div class="ms-h20 thumbnail">
+            <img src="${imagesDom.image}" alt="thumbnail-image">
+        </div>`;
+    });
