@@ -47,6 +47,8 @@ const images = [
     // creo gli elementi del DOM in cui andrò a inserire le immagini del carosello
     let carouselImages = document.querySelector('.col-8');
     let thumbnailImages = document.querySelector('.col-4');
+    // creo l'elemento in cui inserire le miniature
+    let miniatureImage = document.querySelector('#miniature');
     // per ogni elemento dell'array immagini popolo il DOM
     images.forEach((imagesDom) => {
         carouselImages.innerHTML += `
@@ -63,6 +65,7 @@ const images = [
             <img src="${imagesDom.image}" alt="thumbnail-image">
         </div>
         `;
+        miniatureImage.innerHTML += `<img class="ms-col-20" src="${imagesDom.image}" alt="miniature-img">`;
     });
 
 // THUMBNAIL SECTION
@@ -82,9 +85,12 @@ const images = [
         // aggiungo la classe active al primo elemento visibile
         allImageThumbnails[activeItem].classList.add("active");
         
-    setInterval(nextImage3sec, 3000)
+    // setInterval(nextImage3sec, 3000)
     previousImage();
     nextImage();
+
+
+
     
     
 
