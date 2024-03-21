@@ -25,7 +25,7 @@
 .col-8{
     border-right: 1px solid black;
 }
-.col-8 img{
+.anchor{
     display: none;
 }
 .col-4{
@@ -53,9 +53,6 @@ img{
     bottom: 0;
     right: 0;
     text-align: end;
-}
-.description *{
-    display: block;
 }
 .arrow{
     position: absolute;

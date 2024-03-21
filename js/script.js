@@ -70,9 +70,9 @@ const images = [
         // creo una variabile activeItem che regolerà l'attivazione degli item
         let activeItem = 0;
         // creo una variabile che seleziona tutte le immagini di col-8
-        let allImages = document.querySelectorAll('.image');
+        let allAnchor = document.querySelectorAll('.anchor');
         // aggiungo la classe active al primo elemento visibile
-        allImages[activeItem].classList.add("active");
+        allAnchor[activeItem].classList.add("active");
         // creo una variabile che seleziona tutte le immagini di col-4
         let allImageThumbnails = document.querySelectorAll('.thumbnail');
         // aggiungo la classe active al primo elemento visibile
@@ -81,10 +81,22 @@ const images = [
 
     // Imposto il funzionamento del bottone immagine precedente
         // creo l'elemento del DOM a cui assegnero l'eventListener
+        let previousImage = document.querySelector('.previous');
         // associo l'eventListener all'elemento del DOM
+        previousImage.addEventListener('click', function() {
             // al click devo togliere la classe active dagli item selezionati
+            allAnchor[activeItem].classList.remove("active");
+            allImageThumbnails[activeItem].classList.remove("active");
             // e darla ai precedenti
-            
+            if (activeItem > 0){
+                activeItem--;
+            }else {
+                activeItem = allAnchor.length -1;
+            }
+            allAnchor[activeItem].classList.add("active");
+            allImageThumbnails[activeItem].classList.add("active");
+        });
+
     // Imposto il funzionamento del bottone immagine successiva
         // creo l'elemento del DOM a cui assegnero l'eventListener
         // associo l'eventListener all'elemento del DOM
