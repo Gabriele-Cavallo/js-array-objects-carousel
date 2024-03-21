@@ -85,7 +85,7 @@ const images = [
         // aggiungo la classe active al primo elemento visibile
         allImageThumbnails[activeItem].classList.add("active");
     
-    // const intervalImage = setInterval(nextImage3sec, 3000)
+    const intervalImage = setInterval(nextImage3sec, 3000);
     const playButton = document.querySelector('.play');
     const stopButton = document.querySelector('.stop');
     playButton.addEventListener('click', function(){
@@ -93,7 +93,6 @@ const images = [
     });
     stopButton.addEventListener('click', function(){
         stopImage(intervalImage);
-
     });
     previousImage();
     nextImage();
