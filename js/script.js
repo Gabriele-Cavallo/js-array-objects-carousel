@@ -64,9 +64,15 @@ const images = [
 // THUMBNAIL SECTION
 
 // Al click dell'utente sulle frecce verso alto o basso, l'immagine attiva diventerà visibile
-    // Creo una classe css active per dare display block all'elemento attivo
+    // Creo una classe css active per dare display block all'elemento attivo e resettare l'opacità alla thumbnail image
     // Imposto le immagini della col-8 disattivate con un selettore css
     // Dichiaro l'immagine di partenza di col-8 e col-4
+        // creo una variabile activeItem che regolerà l'attivazione degli item
+        // creo una variabile che seleziona tutte le immagini di col-8
+        // aggiungo la classe active al primo elemento visibile
+        // creo una variabile che seleziona tutte le immagini di col-4
+        // aggiungo la classe active al primo elemento visibile
+
 
     // Imposto il funzionamento del bottone immagine precedente
     // Imposto il funzionamento del bottone immagine successiva

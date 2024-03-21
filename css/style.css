@@ -18,10 +18,15 @@
 .row, .col-12, .col-8, .col-4, .anchor{
     height: 100%;
 }
-.col-12{
+.col-12 .active{
+    display: block;
+    opacity: 1;
 }
 .col-8{
     border-right: 1px solid black;
+}
+.col-8 img{
+    display: none;
 }
 .col-4{
     position: relative;
