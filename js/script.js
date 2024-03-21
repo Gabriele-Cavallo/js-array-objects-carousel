@@ -47,7 +47,7 @@ const images = [
     images.forEach((imagesDom) => {
         carouselImages.innerHTML += `
         <div class="anchor">
-            <img src="${imagesDom.image}" alt="main-image">
+            <img class="image" src="${imagesDom.image}" alt="main-image">
             <div class="description pe-3">
                 <h2>${imagesDom.title}</h2>
                 <p>${imagesDom.text}</p>
@@ -68,11 +68,26 @@ const images = [
     // Imposto le immagini della col-8 disattivate con un selettore css
     // Dichiaro l'immagine di partenza di col-8 e col-4
         // creo una variabile activeItem che regolerà l'attivazione degli item
+        let activeItem = 0;
         // creo una variabile che seleziona tutte le immagini di col-8
+        let allImages = document.querySelectorAll('.image');
         // aggiungo la classe active al primo elemento visibile
+        allImages[activeItem].classList.add("active");
         // creo una variabile che seleziona tutte le immagini di col-4
+        let allImageThumbnails = document.querySelectorAll('.thumbnail');
         // aggiungo la classe active al primo elemento visibile
+        allImageThumbnails[activeItem].classList.add("active");
 
 
     // Imposto il funzionamento del bottone immagine precedente
+        // creo l'elemento del DOM a cui assegnero l'eventListener
+        // associo l'eventListener all'elemento del DOM
+            // al click devo togliere la classe active dagli item selezionati
+            // e darla ai precedenti
+            
     // Imposto il funzionamento del bottone immagine successiva
+        // creo l'elemento del DOM a cui assegnero l'eventListener
+        // associo l'eventListener all'elemento del DOM
+            // al click devo togliere la classe active dagli item selezionati
+            // e darla ai successivi
+
