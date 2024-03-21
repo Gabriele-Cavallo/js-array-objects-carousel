@@ -99,7 +99,19 @@ const images = [
 
     // Imposto il funzionamento del bottone immagine successiva
         // creo l'elemento del DOM a cui assegnero l'eventListener
+        let nextImage = document.querySelector('.next');
         // associo l'eventListener all'elemento del DOM
+        nextImage.addEventListener('click', function() {
             // al click devo togliere la classe active dagli item selezionati
+            allAnchor[activeItem].classList.remove("active");
+            allImageThumbnails[activeItem].classList.remove("active");
             // e darla ai successivi
+            if (activeItem < allAnchor.length -1 ){
+                activeItem++;
+            }else {
+                activeItem = 0;
+            }
+            allAnchor[activeItem].classList.add("active");
+            allImageThumbnails[activeItem].classList.add("active");
+        });
 
