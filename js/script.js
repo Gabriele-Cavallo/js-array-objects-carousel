@@ -43,6 +43,8 @@ const images = [
     }
 ];
 
+// DOM SECTION
+
 // Popolazione dei container col-8 e col-4 con le immagini dell'array
     // creo gli elementi del DOM in cui andrò a inserire le immagini del carosello
     let carouselImages = document.querySelector('.col-8');
@@ -68,8 +70,6 @@ const images = [
         miniatureImage.innerHTML += `<img class="ms-col-20 active-image" src="${imagesDom.image}" alt="miniature-img">`;
     });
 
-// THUMBNAIL SECTION
-
 // Al click dell'utente sulle frecce verso alto o basso, l'immagine attiva diventerà visibile
     // Creo una classe css active per dare display block all'elemento attivo e resettare l'opacità alla thumbnail image
     // Imposto le immagini della col-8 disattivate con un selettore css
@@ -84,11 +84,16 @@ const images = [
         let allImageThumbnails = document.querySelectorAll('.thumbnail');
         // aggiungo la classe active al primo elemento visibile
         allImageThumbnails[activeItem].classList.add("active");
+
+// bottoni per scorrere le thumbnail images
+previousImage();
+nextImage();
     
 // PLAY-STOP-REVERSE-BUTTON SECTION
+
 // autoplay next image
 let intervalImage = setInterval(nextImageShow, 3000);
-// creo gli elementi button play,stop,reverse
+// creo gli elementi button play,stop,reverse del DOM
 const playButton = document.querySelector('.play');
 const stopButton = document.querySelector('.stop');
 const reverseButton = document.querySelector('.reverse');
@@ -104,9 +109,7 @@ reverseButton.addEventListener('click', function(){
     clearInterval(intervalImage);
     intervalImage = setInterval(previousImageShow, 3000);
 });
-// bottoni per scorrere le thumbnail images
-previousImage();
-nextImage();
+
 // attivazione dell'immagine del carosello tramite click su una miniatura
 activeImage(allAnchor, allImageThumbnails);
 
@@ -127,55 +130,38 @@ function activeImage (anchor, thumbnail){
             // aggiungo la classe active all'elemento cliccato
             anchor[index].classList.add("active");
             thumbnail[index].classList.add("active");
+            activeItem = index;
         });
     });
 }
 
-// funzione del bottone dell'immagine precedente
+// funzione click del bottone dell'immagine precedente
 function previousImage (){
 // Imposto il funzionamento del bottone immagine precedente
         // creo l'elemento del DOM a cui assegnero l'eventListener
         let previousImage = document.querySelector('.previous');
         // associo l'eventListener all'elemento del DOM
         previousImage.addEventListener('click', function() {
-            // al click devo togliere la classe active dagli item selezionati
-            allAnchor[activeItem].classList.remove("active");
-            allImageThumbnails[activeItem].classList.remove("active");
-            // e darla ai precedenti
-            if (activeItem > 0){
-                activeItem--;
-            }else {
-                activeItem = allAnchor.length -1;
-            }
-            allAnchor[activeItem].classList.add("active");
-            allImageThumbnails[activeItem].classList.add("active");
+            // funzione che attiva l'immagine precedente
+            previousImageShow();
         });
 };
-// funzione del bottone dell'immagine successiva
+// funzione click del bottone dell'immagine successiva
 function nextImage (){
       // Imposto il funzionamento del bottone immagine successiva
         // creo l'elemento del DOM a cui assegnero l'eventListener
         let nextImage = document.querySelector('.next');
         // associo l'eventListener all'elemento del DOM
         nextImage.addEventListener('click', function() {
-            // al click devo togliere la classe active dagli item selezionati
-            allAnchor[activeItem].classList.remove("active");
-            allImageThumbnails[activeItem].classList.remove("active");
-            // e darla ai successivi
-            if (activeItem < allAnchor.length -1 ){
-                activeItem++;
-            }else {
-                activeItem = 0;
-            }
-            allAnchor[activeItem].classList.add("active");
-            allImageThumbnails[activeItem].classList.add("active");
+            // funzione che attiva l'immagine successiva
+            nextImageShow();
         });
 }
-// funzione di autoplay carosello
+// funzione di selezione immagine successiva
 function nextImageShow(){
     // toglie la classe active dagli item attivi
-    allAnchor[activeItem].classList.remove("active");
-    allImageThumbnails[activeItem].classList.remove("active");
+    document.querySelector('.anchor.active').classList.remove('active');
+    document.querySelector('.thumbnail.active').classList.remove('active');
     // e darla ai successivi
     if (activeItem < allAnchor.length -1 ){
         activeItem++;
@@ -185,10 +171,11 @@ function nextImageShow(){
     allAnchor[activeItem].classList.add("active");
     allImageThumbnails[activeItem].classList.add("active");
 }
+// funzione di selezione immagine precedente
 function previousImageShow(){
     // toglie la classe active dagli item attivi
-    allAnchor[activeItem].classList.remove("active");
-    allImageThumbnails[activeItem].classList.remove("active");
+    document.querySelector('.anchor.active').classList.remove('active');
+    document.querySelector('.thumbnail.active').classList.remove('active');
     // per poi darla ai precedenti
     if (activeItem > 0){
         activeItem--;
