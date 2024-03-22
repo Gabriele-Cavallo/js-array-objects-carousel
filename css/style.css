@@ -7,6 +7,10 @@
 /* #endregion RESET */
 
 /* #region GENERAL */
+h2, p{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+}
 .container{
     height: 400px;
     position: absolute;
