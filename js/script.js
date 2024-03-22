@@ -85,21 +85,29 @@ const images = [
         // aggiungo la classe active al primo elemento visibile
         allImageThumbnails[activeItem].classList.add("active");
     
-    const intervalImage = setInterval(nextImage3sec, 3000);
-    const playButton = document.querySelector('.play');
-    const stopButton = document.querySelector('.stop');
-    playButton.addEventListener('click', function(){
-        setInterval(nextImage3sec, 3000);
-    });
-    stopButton.addEventListener('click', function(){
-        stopImage(intervalImage);
-    });
-    previousImage();
-    nextImage();
-    activeImage(allAnchor, allImageThumbnails, activeItem);
+// PLAY-STOP-REVERSE-BUTTON SECTION
+// autoplay next image
+const intervalImage = setInterval(nextImage3sec, 3000);
+// creo gli elementi button play,stop,reverse
+const playButton = document.querySelector('.play');
+const stopButton = document.querySelector('.stop');
+// aggiungo gli eventi click ai bottoni play,stop,reverse
+playButton.addEventListener('click', function(){
+    setInterval(nextImage3sec, 3000);
+});
+stopButton.addEventListener('click', function(){
+    stopImage(intervalImage);
+});
+// bottoni per scorrere le thumbnail images
+previousImage();
+nextImage();
+// attivazione dell'immagine del carosello tramite click su una miniatura
+activeImage(allAnchor, allImageThumbnails, activeItem);
 
 
-// funzione per attivare l'immagine cliccata
+// FUNCTIONS
+
+// funzione per attivare l'immagine cliccata da una miniatura
 function activeImage (anchor, thumbnail, item){
     let selectImage = document.querySelectorAll('.active-image');
     selectImage.forEach((image, index) => {
@@ -113,6 +121,7 @@ function activeImage (anchor, thumbnail, item){
     });
 }
 
+// funzione del bottone dell'immagine precedente
 function previousImage (){
 // Imposto il funzionamento del bottone immagine precedente
         // creo l'elemento del DOM a cui assegnero l'eventListener
@@ -132,7 +141,7 @@ function previousImage (){
             allImageThumbnails[activeItem].classList.add("active");
         });
 };
-
+// funzione del bottone dell'immagine successiva
 function nextImage (){
       // Imposto il funzionamento del bottone immagine successiva
         // creo l'elemento del DOM a cui assegnero l'eventListener
@@ -152,6 +161,7 @@ function nextImage (){
             allImageThumbnails[activeItem].classList.add("active");
         });
 }
+// funzione di autoplay carosello
 function nextImage3sec(){
     // ogni 3 secondi devo togliere la classe active dagli item selezionati
     allAnchor[activeItem].classList.remove("active");
@@ -165,6 +175,7 @@ function nextImage3sec(){
     allAnchor[activeItem].classList.add("active");
     allImageThumbnails[activeItem].classList.add("active");
 }
+// funzione di stop autoplay
 function stopImage (stopAnimation){
     clearInterval(stopAnimation);
 }
