@@ -87,17 +87,21 @@ const images = [
     
 // PLAY-STOP-REVERSE-BUTTON SECTION
 // autoplay next image
-const intervalImage = setInterval(nextImage3sec, 3000);
+let intervalImage = setInterval(nextImage3sec, 3000);
 // creo gli elementi button play,stop,reverse
 const playButton = document.querySelector('.play');
 const stopButton = document.querySelector('.stop');
 const reverseButton = document.querySelector('.reverse');
 // aggiungo gli eventi click ai bottoni play,stop,reverse
 playButton.addEventListener('click', function(){
-    setInterval(nextImage3sec, 3000);
+    if(!intervalImage){
+        intervalImage = null;  
+        intervalImage = setInterval(nextImage3sec, 3000);
+    }
 });
 stopButton.addEventListener('click', function(){
-    stopImage(intervalImage);
+    clearInterval(intervalImage);
+    intervalImage = false;
 });
 // bottoni per scorrere le thumbnail images
 previousImage();
@@ -179,8 +183,4 @@ function nextImage3sec(){
     }
     allAnchor[activeItem].classList.add("active");
     allImageThumbnails[activeItem].classList.add("active");
-}
-// funzione di stop autoplay
-function stopImage (stopAnimation){
-    clearInterval(stopAnimation);
 }
