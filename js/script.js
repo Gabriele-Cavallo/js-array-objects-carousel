@@ -102,21 +102,22 @@ stopButton.addEventListener('click', function(){
 previousImage();
 nextImage();
 // attivazione dell'immagine del carosello tramite click su una miniatura
-activeImage(allAnchor, allImageThumbnails, activeItem);
+activeImage(allAnchor, allImageThumbnails);
 
 
 // FUNCTIONS
 
 // funzione per attivare l'immagine cliccata da una miniatura
-function activeImage (anchor, thumbnail, item){
+function activeImage (anchor, thumbnail){
     let selectImage = document.querySelectorAll('.active-image');
     selectImage.forEach((image, index) => {
         image.addEventListener('click', () =>{
-            anchor[item].classList.remove("active");
-            thumbnail[item].classList.remove("active");
+            // rimuovo la classe active dall'elemento del DOM
+            document.querySelector('.anchor.active').classList.remove('active');
+            document.querySelector('.thumbnail.active').classList.remove('active');
+            // aggiungo la classe active all'elemento cliccato
             anchor[index].classList.add("active");
             thumbnail[index].classList.add("active");
-            item = index;
         });
     });
 }
