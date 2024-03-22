@@ -91,6 +91,7 @@ const intervalImage = setInterval(nextImage3sec, 3000);
 // creo gli elementi button play,stop,reverse
 const playButton = document.querySelector('.play');
 const stopButton = document.querySelector('.stop');
+const reverseButton = document.querySelector('.reverse');
 // aggiungo gli eventi click ai bottoni play,stop,reverse
 playButton.addEventListener('click', function(){
     setInterval(nextImage3sec, 3000);
