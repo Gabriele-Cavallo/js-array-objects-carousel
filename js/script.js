@@ -134,28 +134,27 @@ function activeImage (anchor, thumbnail){
         });
     });
 }
-
 // funzione click del bottone dell'immagine precedente
 function previousImage (){
 // Imposto il funzionamento del bottone immagine precedente
-        // creo l'elemento del DOM a cui assegnero l'eventListener
-        let previousImage = document.querySelector('.previous');
-        // associo l'eventListener all'elemento del DOM
-        previousImage.addEventListener('click', function() {
-            // funzione che attiva l'immagine precedente
-            previousImageShow();
-        });
+    // creo l'elemento del DOM a cui assegnero l'eventListener
+    let previousImage = document.querySelector('.previous');
+    // associo l'eventListener all'elemento del DOM
+    previousImage.addEventListener('click', function() {
+        // funzione che attiva l'immagine precedente
+        previousImageShow();
+    });
 };
 // funzione click del bottone dell'immagine successiva
 function nextImage (){
-      // Imposto il funzionamento del bottone immagine successiva
-        // creo l'elemento del DOM a cui assegnero l'eventListener
-        let nextImage = document.querySelector('.next');
-        // associo l'eventListener all'elemento del DOM
-        nextImage.addEventListener('click', function() {
-            // funzione che attiva l'immagine successiva
-            nextImageShow();
-        });
+// Imposto il funzionamento del bottone immagine successiva
+    // creo l'elemento del DOM a cui assegnero l'eventListener
+    let nextImage = document.querySelector('.next');
+    // associo l'eventListener all'elemento del DOM
+    nextImage.addEventListener('click', function() {
+        // funzione che attiva l'immagine successiva
+        nextImageShow();
+    });
 }
 // funzione di selezione immagine successiva
 function nextImageShow(){
