@@ -87,21 +87,22 @@ const images = [
     
 // PLAY-STOP-REVERSE-BUTTON SECTION
 // autoplay next image
-let intervalImage = setInterval(nextImage3sec, 3000);
+let intervalImage = setInterval(nextImageShow, 3000);
 // creo gli elementi button play,stop,reverse
 const playButton = document.querySelector('.play');
 const stopButton = document.querySelector('.stop');
 const reverseButton = document.querySelector('.reverse');
 // aggiungo gli eventi click ai bottoni play,stop,reverse
 playButton.addEventListener('click', function(){
-    if(!intervalImage){
-        intervalImage = null;  
-        intervalImage = setInterval(nextImage3sec, 3000);
-    }
+    clearInterval(intervalImage);
+    intervalImage = setInterval(nextImageShow, 3000);
 });
 stopButton.addEventListener('click', function(){
     clearInterval(intervalImage);
-    intervalImage = false;
+});
+reverseButton.addEventListener('click', function(){
+    clearInterval(intervalImage);
+    intervalImage = setInterval(previousImageShow, 3000);
 });
 // bottoni per scorrere le thumbnail images
 previousImage();
@@ -171,8 +172,8 @@ function nextImage (){
         });
 }
 // funzione di autoplay carosello
-function nextImage3sec(){
-    // ogni 3 secondi devo togliere la classe active dagli item selezionati
+function nextImageShow(){
+    // toglie la classe active dagli item attivi
     allAnchor[activeItem].classList.remove("active");
     allImageThumbnails[activeItem].classList.remove("active");
     // e darla ai successivi
@@ -180,6 +181,19 @@ function nextImage3sec(){
         activeItem++;
     }else {
         activeItem = 0;
+    }
+    allAnchor[activeItem].classList.add("active");
+    allImageThumbnails[activeItem].classList.add("active");
+}
+function previousImageShow(){
+    // toglie la classe active dagli item attivi
+    allAnchor[activeItem].classList.remove("active");
+    allImageThumbnails[activeItem].classList.remove("active");
+    // per poi darla ai precedenti
+    if (activeItem > 0){
+        activeItem--;
+    }else {
+        activeItem = allAnchor.length -1;
     }
     allAnchor[activeItem].classList.add("active");
     allImageThumbnails[activeItem].classList.add("active");
