@@ -108,6 +108,9 @@ activeImage(allAnchor, allImageThumbnails);
 // FUNCTIONS
 
 // funzione per attivare l'immagine cliccata da una miniatura
+// anchor ---> immagine del carosello principale a cui assegnare la classe active
+// thumbnail ---> immagine thumbnail a cui assegnare la classe active
+// index ---> indice della miniatura cliccata che regola quale anchor e thumbnail attivare
 function activeImage (anchor, thumbnail){
     let selectImage = document.querySelectorAll('.active-image');
     selectImage.forEach((image, index) => {
